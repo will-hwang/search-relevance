@@ -90,6 +90,7 @@ import org.opensearch.searchrelevance.rest.RestPutQuerySetAction;
 import org.opensearch.searchrelevance.rest.RestPutSearchConfigurationAction;
 import org.opensearch.searchrelevance.rest.RestSearchExperimentAction;
 import org.opensearch.searchrelevance.rest.RestSearchRelevanceStatsAction;
+import org.opensearch.searchrelevance.rest.RestSearchSearchConfigurationAction;
 import org.opensearch.searchrelevance.scheduler.ScheduledExperimentRunnerManager;
 import org.opensearch.searchrelevance.scheduler.SearchRelevanceJobParameters;
 import org.opensearch.searchrelevance.scheduler.SearchRelevanceJobRunner;
@@ -130,6 +131,8 @@ import org.opensearch.searchrelevance.transport.searchConfiguration.GetSearchCon
 import org.opensearch.searchrelevance.transport.searchConfiguration.GetSearchConfigurationTransportAction;
 import org.opensearch.searchrelevance.transport.searchConfiguration.PutSearchConfigurationAction;
 import org.opensearch.searchrelevance.transport.searchConfiguration.PutSearchConfigurationTransportAction;
+import org.opensearch.searchrelevance.transport.searchConfiguration.SearchSearchConfigurationAction;
+import org.opensearch.searchrelevance.transport.searchConfiguration.SearchSearchConfigurationTransportAction;
 import org.opensearch.searchrelevance.transport.stats.SearchRelevanceStatsAction;
 import org.opensearch.searchrelevance.transport.stats.SearchRelevanceStatsTransportAction;
 import org.opensearch.searchrelevance.utils.ClusterUtil;
@@ -282,6 +285,7 @@ public class SearchRelevancePlugin extends Plugin
             new RestPutSearchConfigurationAction(settingsAccessor),
             new RestDeleteSearchConfigurationAction(settingsAccessor),
             new RestGetSearchConfigurationAction(settingsAccessor),
+            new RestSearchSearchConfigurationAction(settingsAccessor),
             new RestPutExperimentAction(settingsAccessor),
             new RestGetExperimentAction(settingsAccessor),
             new RestDeleteExperimentAction(settingsAccessor),
@@ -306,6 +310,7 @@ public class SearchRelevancePlugin extends Plugin
             new ActionHandler<>(PutSearchConfigurationAction.INSTANCE, PutSearchConfigurationTransportAction.class),
             new ActionHandler<>(DeleteSearchConfigurationAction.INSTANCE, DeleteSearchConfigurationTransportAction.class),
             new ActionHandler<>(GetSearchConfigurationAction.INSTANCE, GetSearchConfigurationTransportAction.class),
+            new ActionHandler<>(SearchSearchConfigurationAction.INSTANCE, SearchSearchConfigurationTransportAction.class),
             new ActionHandler<>(PutExperimentAction.INSTANCE, PutExperimentTransportAction.class),
             new ActionHandler<>(DeleteExperimentAction.INSTANCE, DeleteExperimentTransportAction.class),
             new ActionHandler<>(GetExperimentAction.INSTANCE, GetExperimentTransportAction.class),
