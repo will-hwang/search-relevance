@@ -89,6 +89,7 @@ import org.opensearch.searchrelevance.rest.RestPutJudgmentAction;
 import org.opensearch.searchrelevance.rest.RestPutQuerySetAction;
 import org.opensearch.searchrelevance.rest.RestPutSearchConfigurationAction;
 import org.opensearch.searchrelevance.rest.RestSearchExperimentAction;
+import org.opensearch.searchrelevance.rest.RestSearchJudgmentAction;
 import org.opensearch.searchrelevance.rest.RestSearchRelevanceStatsAction;
 import org.opensearch.searchrelevance.rest.RestSearchSearchConfigurationAction;
 import org.opensearch.searchrelevance.scheduler.ScheduledExperimentRunnerManager;
@@ -111,6 +112,8 @@ import org.opensearch.searchrelevance.transport.judgment.GetJudgmentAction;
 import org.opensearch.searchrelevance.transport.judgment.GetJudgmentTransportAction;
 import org.opensearch.searchrelevance.transport.judgment.PutJudgmentAction;
 import org.opensearch.searchrelevance.transport.judgment.PutJudgmentTransportAction;
+import org.opensearch.searchrelevance.transport.judgment.SearchJudgmentAction;
+import org.opensearch.searchrelevance.transport.judgment.SearchJudgmentTransportAction;
 import org.opensearch.searchrelevance.transport.queryset.DeleteQuerySetAction;
 import org.opensearch.searchrelevance.transport.queryset.DeleteQuerySetTransportAction;
 import org.opensearch.searchrelevance.transport.queryset.GetQuerySetAction;
@@ -282,6 +285,7 @@ public class SearchRelevancePlugin extends Plugin
             new RestPutJudgmentAction(settingsAccessor),
             new RestDeleteJudgmentAction(settingsAccessor),
             new RestGetJudgmentAction(settingsAccessor),
+            new RestSearchJudgmentAction(settingsAccessor),
             new RestPutSearchConfigurationAction(settingsAccessor),
             new RestDeleteSearchConfigurationAction(settingsAccessor),
             new RestGetSearchConfigurationAction(settingsAccessor),
@@ -307,6 +311,7 @@ public class SearchRelevancePlugin extends Plugin
             new ActionHandler<>(PutJudgmentAction.INSTANCE, PutJudgmentTransportAction.class),
             new ActionHandler<>(DeleteJudgmentAction.INSTANCE, DeleteJudgmentTransportAction.class),
             new ActionHandler<>(GetJudgmentAction.INSTANCE, GetJudgmentTransportAction.class),
+            new ActionHandler<>(SearchJudgmentAction.INSTANCE, SearchJudgmentTransportAction.class),
             new ActionHandler<>(PutSearchConfigurationAction.INSTANCE, PutSearchConfigurationTransportAction.class),
             new ActionHandler<>(DeleteSearchConfigurationAction.INSTANCE, DeleteSearchConfigurationTransportAction.class),
             new ActionHandler<>(GetSearchConfigurationAction.INSTANCE, GetSearchConfigurationTransportAction.class),
